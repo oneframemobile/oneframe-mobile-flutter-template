@@ -1,0 +1,3 @@
+class SessionState {
+  String email;
+}
