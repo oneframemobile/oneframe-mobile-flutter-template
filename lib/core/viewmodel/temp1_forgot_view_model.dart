@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_provider/core/base/base_model.dart';
 import 'package:flutter_provider/core/enum/page_named.dart';
-import 'package:flutter_provider/shared/keyboard.dart';
 
-class SplashViewModel extends BaseModel {
+class Temp1ForgotViewModel extends BaseModel {
   BuildContext _context;
 
   BuildContext get context => _context;
@@ -11,11 +11,13 @@ class SplashViewModel extends BaseModel {
   @override
   void setContext(BuildContext context) {
     this._context = context;
+  }
 
-    KeyboardChangeNotifier.hideKeyboard();
-    Future.delayed(Duration(seconds: 2), () {
-      //navigator.navigateToRemove(Pages.Home);
-      navigator.navigateToRemove(Pages.SelectTempView);
-    });
+  goToSmsView() {
+    navigator.navigateTo(Pages.Temp1SmsView);
+  }
+
+  goToEmailView() {
+    navigator.navigateTo(Pages.Temp1EmailView);
   }
 }

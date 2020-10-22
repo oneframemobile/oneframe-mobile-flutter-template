@@ -18,7 +18,7 @@ class Service {
   //static final instance = Service._privateConstructor();
   NetworkManager _manager;
 
-  Service({String url="http://37.131.251.245:8080/"}) {
+  Service({String url = "https://oneframe-livedemo-api.azurewebsites.net"}) {
     NetworkConfig _config = new NetworkConfig();
     ServiceLearning _learning = new ServiceLearning();
     _config.setBaseUrl(url);
@@ -52,6 +52,14 @@ class Service {
   Future getCounties({int cityId, NetworkListener<dynamic, dynamic> listener}) async {
     await _manager
         .get<CityCountyListResponse, ErrorResponse>(url: "cities/$cityId/counties", type: CityCountyListResponse(), errorType: ErrorResponse(), listener: listener)
+        .asList(true)
+        .contentType(new ContentType("application", "json", charset: "utf-8"))
+        .fetch();
+  }
+
+  Future getCountyNeighbourhoods({int countyId, NetworkListener<dynamic, dynamic> listener}) async {
+    await _manager
+        .get<CityCountyListResponse, ErrorResponse>(url: "counties/$countyId/neighbourhoods", type: CityCountyListResponse(), errorType: ErrorResponse(), listener: listener)
         .asList(true)
         .contentType(new ContentType("application", "json", charset: "utf-8"))
         .fetch();

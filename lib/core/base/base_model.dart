@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/core/enum/viewstate.dart';
 import 'package:flutter_provider/core/services/navigation.dart';
+import 'package:flutter_provider/shared/keyboard.dart';
 
 import '../../locator.dart';
 
 abstract class BaseModel extends ChangeNotifier {
   ViewState _state = ViewState.Idle;
+
   ViewState get state => _state;
 
   NavigationService get navigator {
@@ -13,6 +15,7 @@ abstract class BaseModel extends ChangeNotifier {
   }
 
   void setState(ViewState state) {
+    KeyboardChangeNotifier.hideKeyboard();
     if (state == _state)
       return;
     else
@@ -21,7 +24,6 @@ abstract class BaseModel extends ChangeNotifier {
   }
 
   void setContext(BuildContext context);
-
 
   @override
   void dispose() {

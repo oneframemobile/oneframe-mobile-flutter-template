@@ -68,6 +68,27 @@ class NavigationService {
       case Pages.EmailView:
         return "/emailView";
 
+      case Pages.SelectTempView:
+        return "/selectTempView";
+
+      case Pages.Temp1AuthView:
+        return "/temp1AuthView";
+
+      case Pages.Temp1LoginView:
+        return "/temp1LoginView";
+
+      case Pages.Temp1ForgotView:
+        return "/temp1ForgotView";
+
+      case Pages.Temp1EmailView:
+        return "/temp1EmailView";
+
+      case Pages.Temp1SmsView:
+        return "/temp1SmsView";
+
+      case Pages.Temp1Home:
+        return "/temp1Home";
+
       default:
         return "/";
     }

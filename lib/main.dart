@@ -4,7 +4,7 @@ import 'package:flutter_provider/router.dart' as rt;
 
 import 'core/services/navigation.dart';
 import 'locator.dart';
-import 'ui/shared/widgets/view/my_behavior.dart';
+import 'shared/widgets/view/my_behavior.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

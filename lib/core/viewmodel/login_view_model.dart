@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_provider/core/api/bean/request/login_request.dart';
 import 'package:flutter_provider/core/api/service.dart';
 import 'package:flutter_provider/core/base/base_model.dart';
 import 'package:flutter_provider/core/enum/page_named.dart';
 import 'package:flutter_provider/core/enum/viewstate.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_provider/shared/warning.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 import 'package:networking/networking/network_listener.dart';
 
@@ -14,6 +15,8 @@ class LoginViewModel extends BaseModel {
   BuildContext get context => _context;
   ScrollController scrollController = ScrollController();
 
+  final loginKey = GlobalKey<ScaffoldState>(debugLabel: "_loginKey");
+
   final Service _service = Service();
   String errorMessage;
   bool visibilityField = true;
@@ -22,7 +25,7 @@ class LoginViewModel extends BaseModel {
   final FocusNode emailFocus = FocusNode();
   final FocusNode passwordFocus = FocusNode();
 
-  LoginRequest loginRequest = new LoginRequest("adminuser@kocsistem.com.tr", "123456");
+  LoginRequest loginRequest = new LoginRequest();
 
   var email = TextEditingController();
   var password = TextEditingController();
@@ -41,46 +44,66 @@ class LoginViewModel extends BaseModel {
     notifyListeners();
   }
 
-  Future<bool> loginUser(LoginRequest request) async {
+  loginUser() async {
     setState(ViewState.Loading);
 
-    if (request.email.isEmpty) {
-      errorMessage = 'Email is required.';
-      setState(ViewState.Error);
-      return false;
-    } else if (request.password.isEmpty) {
-      errorMessage = 'Password is required.';
-      setState(ViewState.Error);
-      return false;
-    } else {
-      await _service.login(
-          loginRequest: loginRequest,
-          listener: new NetworkListener()
-            ..onSuccess((dynamic result) {
-              loginSuccess();
-            })
-            ..onError((dynamic error) {
-              errorLogin();
-            }));
-    }
+    Future.delayed(Duration(seconds: 1), () async {
+      if (isWarningFields()) {
+        WarningDialog.showSnackBar(key: loginKey, child: Text(errorMessage));
+        setState(ViewState.Idle);
+      } else {
+        loginRequest.email = email.text;
+        loginRequest.password = password.text;
+        await _service.login(
+            loginRequest: loginRequest,
+            listener: new NetworkListener()
+              ..onSuccess((dynamic result) {
+                setState(ViewState.Idle);
+                loginSuccess();
+              })
+              ..onError((dynamic error) {
+                setState(ViewState.Idle);
+                loginError(error);
+              }));
+      }
+    });
   }
 
   loginSuccess() {
-   navigator.navigateToRemove(Pages.Home);
+    navigator.navigateToRemove(Pages.Home);
   }
 
-  errorLogin() {
-    print("accounts/login onerror");
+  loginError(dynamic error) {
+    try {
+      WarningDialog.showSnackBar(key: loginKey, child: Text(error.data.message));
+    } catch (e) {
+      WarningDialog.showSnackBar(key: loginKey, child: Text("Login on error"));
+    }
   }
 
-  openForgotPassword(){
+
+  openForgotPassword() {
     FocusScope.of(context).unfocus();
     navigator.navigateTo(Pages.ForgotPassword);
   }
 
-  openSignUpPage(){
+  openSignUpPage() {
     FocusScope.of(context).unfocus();
     navigator.navigateTo(Pages.SignUp);
+  }
+
+  bool isWarningFields() {
+    bool isWarning = false;
+
+    if (email.text.isEmpty) {
+      errorMessage = 'Mail is required.';
+      isWarning = true;
+    } else if (password.text.isEmpty) {
+      errorMessage = 'Password is required.';
+      isWarning = true;
+    }
+
+    return isWarning;
   }
 
   @override

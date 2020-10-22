@@ -7,13 +7,7 @@ class RegisterRequest implements SerializableObject<RegisterRequest> {
   String name;
   String surname;
 
-  RegisterRequest(
-      this.email,
-      this.password,
-      this.phoneNumber,
-      this.name,
-      this.surname
-      );
+  RegisterRequest({this.email, this.password, this.phoneNumber, this.name, this.surname});
 
   RegisterRequest.fromJsonMap(Map<String, dynamic> map)
       : email = map["email"],

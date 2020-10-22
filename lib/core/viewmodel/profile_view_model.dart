@@ -31,7 +31,7 @@ class ProfileViewModel extends BaseModel {
   List<CityCounty> counties = new List();
   List<CityCounty> countiesTmp = new List();
 
-  final Service _service = Service();
+  final Service _service = Service(url: "http://37.131.251.245:8080/");
   CityCounty selectedCity;
   List<CityCounty> selectedCounty = new List();
 
@@ -77,7 +77,6 @@ class ProfileViewModel extends BaseModel {
     this._context = context;
 
     getAllCity();
-
   }
 
   search(String term) async {
@@ -108,12 +107,12 @@ class ProfileViewModel extends BaseModel {
     isCity = val;
   }
 
-  focusMyLocation() {
+  focusMyLocation({double zoom = 15}) {
     try {
       Future.delayed(Duration(milliseconds: 300), () {
         mapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
           target: LatLng(currentUserLocation.latitude, currentUserLocation.longitude),
-          zoom: 15,
+          zoom: zoom,
         )));
       });
     } catch (e) {}
@@ -125,10 +124,9 @@ class ProfileViewModel extends BaseModel {
 
   changeSelectedCity(int index) {
     CityCounty selectedCityTemp;
-    if(citiesTmp.length == 0){
+    if (citiesTmp.length == 0) {
       selectedCityTemp = cities[index];
-    }
-    else{
+    } else {
       selectedCityTemp = citiesTmp[index];
     }
     clearController();
@@ -140,12 +138,13 @@ class ProfileViewModel extends BaseModel {
 
   changeSingleSelectedCounty(int index) {
     CityCounty selectedCountyTemp;
-    if(countiesTmp.length == 0){
+    if (countiesTmp.length == 0) {
       selectedCountyTemp = counties[index];
-    }
-    else{
+    } else {
       selectedCountyTemp = countiesTmp[index];
     }
+
+    getSelectedCountyLatLng(selectedCountyTemp.id);
 
     selectedCounty.clear();
     selectedCounty.add(selectedCountyTemp);
@@ -155,10 +154,9 @@ class ProfileViewModel extends BaseModel {
 
   addSelectedCountyList(int index) {
     CityCounty selectedCountyTemp;
-    if(countiesTmp.length == 0){
+    if (countiesTmp.length == 0) {
       selectedCountyTemp = counties[index];
-    }
-    else{
+    } else {
       selectedCountyTemp = countiesTmp[index];
     }
 
@@ -193,6 +191,7 @@ class ProfileViewModel extends BaseModel {
             counties.clear();
             selectedCounty.clear();
             counties.addAll(result.data.list);
+
             notifyListeners();
           })
           ..onError((dynamic error) {
@@ -200,7 +199,23 @@ class ProfileViewModel extends BaseModel {
           }));
   }
 
-  clearController(){
+  getSelectedCountyLatLng(int countyId) async {
+    await _service.getCountyNeighbourhoods(
+        countyId: countyId,
+        listener: new NetworkListener()
+          ..onSuccess((dynamic result) {
+            try {
+              currentUserLocation = new LatLng(result.data.list[0].lat, result.data.list[0].lng);
+              focusMyLocation(zoom: 11);
+            } catch (e) {}
+            notifyListeners();
+          })
+          ..onError((dynamic error) {
+            print("hataaa");
+          }));
+  }
+
+  clearController() {
     searchController.text = "";
   }
 }
