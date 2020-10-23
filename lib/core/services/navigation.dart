@@ -86,9 +86,6 @@ class NavigationService {
       case Pages.Temp1SmsView:
         return "/temp1SmsView";
 
-      case Pages.Temp1Home:
-        return "/temp1Home";
-
       default:
         return "/";
     }

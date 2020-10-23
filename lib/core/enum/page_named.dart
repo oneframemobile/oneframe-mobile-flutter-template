@@ -13,6 +13,5 @@ enum Pages {
   Temp1ForgotView,
   Temp1EmailView,
   Temp1SmsView,
-  Temp1Home,
   Authentication
 }

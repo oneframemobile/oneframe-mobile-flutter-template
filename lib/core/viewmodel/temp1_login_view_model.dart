@@ -74,7 +74,7 @@ class Temp1LoginViewModel extends BaseModel {
   }
 
   loginSuccess() {
-    navigator.navigateToRemove(Pages.Temp1Home);
+    navigator.navigateToRemove(Pages.Home);
   }
 
   loginError(dynamic error) {

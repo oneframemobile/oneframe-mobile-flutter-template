@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/core/viewmodel/sms_view_model.dart';
 import 'package:flutter_provider/select_temp_view.dart';
 import 'package:flutter_provider/temp1/views/authentication/forgot/renew/temp1_email_view.dart';
 import 'package:flutter_provider/temp1/views/authentication/forgot/renew/temp1_sms_view.dart';
 import 'package:flutter_provider/temp1/views/authentication/forgot/temp1_forgot_view.dart';
 import 'package:flutter_provider/temp1/views/authentication/login/temp1_login_view.dart';
 import 'package:flutter_provider/temp1/views/authentication/temp1_auth_view.dart';
-import 'package:flutter_provider/temp1/views/home/home.dart';
 import 'package:flutter_provider/temp2/views/authentication/authentication.dart';
 import 'package:flutter_provider/temp2/views/authentication/forgot/forgot_password.dart';
 import 'package:flutter_provider/temp2/views/authentication/forgot/renew/email_view.dart';
@@ -34,7 +32,6 @@ class Router {
   static const String temp1ForgotView = '/temp1ForgotView';
   static const String temp1EmailView = '/temp1EmailView';
   static const String temp1SmsView = '/temp1SmsView';
-  static const String temp1Home = '/temp1Home';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -68,8 +65,6 @@ class Router {
         return MaterialPageRoute(builder: (_) => Temp1EmailView());
       case temp1SmsView:
         return MaterialPageRoute(builder: (_) => Temp1SmsView());
-      case temp1Home:
-        return MaterialPageRoute(builder: (_) => Temp1HomeView());
 
       default:
         return MaterialPageRoute(
