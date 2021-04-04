@@ -63,10 +63,10 @@ class Temp1LoginViewModel extends BaseModel {
     bool isWarning = false;
 
     if (emailController.text.isEmpty) {
-      errorMessage = 'Mail is required.';
+      errorMessage = 'Lütfen mail adresinizi girin.';
       isWarning = true;
     } else if (passwordController.text.isEmpty) {
-      errorMessage = 'Password is required.';
+      errorMessage = 'Lütfen şifrenizi girin.';
       isWarning = true;
     }
 

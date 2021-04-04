@@ -5,6 +5,7 @@ import 'package:flutter_provider/core/viewmodel/select_temp_view_model.dart';
 import 'package:flutter_provider/shared/styles/colors/colors.dart';
 import 'package:flutter_provider/shared/styles/text/styles.dart';
 import 'package:flutter_provider/shared/widgets/button/raised_button.dart';
+import 'package:lottie/lottie.dart';
 
 class SelectTempView extends StatefulWidget {
   @override
@@ -30,15 +31,13 @@ class _SelectTempViewState extends State<SelectTempView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 buildClipRRect(
-                    text: "Template 1",
+                    text: "OneFrame Template 1",
                     click: () {
                       _selectTempViewModel.goToLoginTemp1();
                     }),
-                SizedBox(
-                  height: 50,
-                ),
+                _lottieView,
                 buildClipRRect(
-                    text: "Template 2",
+                    text: "OneFrame Template 2",
                     click: () {
                       _selectTempViewModel.goToLoginTemp2();
                     }),
@@ -57,13 +56,19 @@ class _SelectTempViewState extends State<SelectTempView> {
             height: 360,
             child: Text(
               text,
-              style: loginButtonStyle,
+              style: loginButtonStyle2,
             ),
             gradient: LinearGradient(
-              colors: forgotEMailButtonGradient,
+              colors: selectTempButtonGradient,
             ),
             onPressed: () {
               click();
             }));
   }
+
+  Widget get _lottieView => Lottie.asset(
+    "assets/gif/line2.json",
+
+  );
 }
+

@@ -46,8 +46,8 @@ class LoginViewModel extends BaseModel {
 
   loginUser() async {
     setState(ViewState.Loading);
-
-    Future.delayed(Duration(seconds: 1), () async {
+    loginSuccess();
+    /*Future.delayed(Duration(seconds: 1), () async {
       if (isWarningFields()) {
         WarningDialog.showSnackBar(key: loginKey, child: Text(errorMessage));
         setState(ViewState.Idle);
@@ -66,7 +66,7 @@ class LoginViewModel extends BaseModel {
                 loginError(error);
               }));
       }
-    });
+    });*/
   }
 
   loginSuccess() {
@@ -96,10 +96,10 @@ class LoginViewModel extends BaseModel {
     bool isWarning = false;
 
     if (email.text.isEmpty) {
-      errorMessage = 'Mail is required.';
+      errorMessage = 'Lütfen mail adresinizi girin.';
       isWarning = true;
     } else if (password.text.isEmpty) {
-      errorMessage = 'Password is required.';
+      errorMessage = 'Lütfen şifrenizi girin.';
       isWarning = true;
     }
 

@@ -22,6 +22,13 @@ const loginButtonStyle = TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 16);
 
+const loginButtonStyle2 = TextStyle(
+    color: const Color(0xffffffff),
+    fontWeight: FontWeight.w500,
+    fontFamily: "Poppins",
+    fontStyle: FontStyle.normal,
+    fontSize: 22);
+
 
 const tabTextStyle = TextStyle(
     color: Color(0xffffffff),

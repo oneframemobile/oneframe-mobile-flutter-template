@@ -86,19 +86,19 @@ class RegisterViewModel extends BaseModel {
     bool isWarning = false;
 
     if (nameController.text.isEmpty) {
-      errorMessage = 'Name is required.';
+      errorMessage = 'İsim alanı boş bırakılamaz.';
       isWarning = true;
     } else if (surnameController.text.isEmpty) {
-      errorMessage = 'Surname is required.';
+      errorMessage = 'Soyisim alanı boş bırakılamaz.';
       isWarning = true;
     } else if (mailController.text.isEmpty) {
-      errorMessage = 'Mail is required.';
+      errorMessage = 'Mail alanı boş bırakılamaz.';
       isWarning = true;
     } else if (phoneController.text.isEmpty) {
-      errorMessage = 'Phone is required.';
+      errorMessage = 'Telefon alanı boş bırakılamaz.';
       isWarning = true;
     } else if (passwordController.text.isEmpty) {
-      errorMessage = 'Password is required.';
+      errorMessage = 'Şifre alanı boş bırakılamaz.';
       isWarning = true;
     }
 

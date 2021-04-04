@@ -13,6 +13,11 @@ const forgotEMailButtonGradient = [
   Color.fromRGBO(22, 115, 198, 1)
 ];
 
+const selectTempButtonGradient = [
+  Color.fromRGBO(147,112,219,1),
+  Color.fromRGBO(0, 181, 204, 1)
+];
+
 const forgotSMSButtonGradient = [
   Color.fromRGBO(52, 188, 115, 1),
   Color.fromRGBO(6, 154, 75, 1)
