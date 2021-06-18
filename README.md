@@ -8,4 +8,3 @@ UI Design and concept project
 
 ## Build for json generation
 flutter packages pub run build_runner build
-

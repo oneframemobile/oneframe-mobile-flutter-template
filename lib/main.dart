@@ -1,42 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_provider/router.dart' as rt;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:networking/networking.dart';
 
-import 'core/services/navigation.dart';
-import 'locator.dart';
-import 'shared/widgets/view/my_behavior.dart';
+import 'app/core/route/app_pages.dart';
+import 'app/core/base/binding/base_binding.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await _applicationConfigure();
-
-  runApp(MyApp());
+void main() {
+  NetworkingFactory.init();
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _buildMaterialApp;
-  }
-
-  MaterialApp get _buildMaterialApp {
-    return MaterialApp(
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: MyBehavior(),
-          child: child,
-        );
-      },
-      title: 'Oneframe Rapid Provider',
-      debugShowCheckedModeBanner: false,
-      navigatorKey: locator<NavigationService>().navigatorKey,
-      onGenerateRoute: rt.Router.generateRoute,
-      theme: ThemeData.light(),
+    return ScreenUtilInit(
+      designSize: Size(
+        WidgetsBinding.instance!.window.physicalSize.width,
+        WidgetsBinding.instance!.window.physicalSize.height,
+      ),
+      builder: () => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.splash,
+        getPages: AppPages.pages,
+        initialBinding: BaseBinding(),
+      ),
     );
   }
-}
-
-Future _applicationConfigure() async {
-  initLocator();
 }
