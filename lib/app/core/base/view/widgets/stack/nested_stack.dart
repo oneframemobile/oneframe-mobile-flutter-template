@@ -21,7 +21,7 @@ class NestedStack extends StatelessWidget {
         Image.asset(
           this.backgroundImage,
           height: UIHelper.Space800.h,
-          width: ScreenUtil.defaultSize.width,
+          width: double.infinity,
           fit: BoxFit.fill,
         ),
         Positioned.fill(

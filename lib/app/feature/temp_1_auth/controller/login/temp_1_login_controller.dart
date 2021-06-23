@@ -33,7 +33,7 @@ class Temp1LoginController extends BaseController {
       } else {
         LoginRequest loginRequest = LoginRequest();
 
-        loginRequest.userName = emailController.text;
+        loginRequest.email = emailController.text;
         loginRequest.password = passwordController.text;
         await apiService.login(
             loginRequest: loginRequest,
@@ -43,6 +43,7 @@ class Temp1LoginController extends BaseController {
                 navigateToHomeView();
               })
               ..onError((dynamic error) {
+                clearForm();
                 this.hideProgressBar();
                 loginError(error);
               }));
@@ -55,7 +56,7 @@ class Temp1LoginController extends BaseController {
     await Get.offNamed(AppRoutes.home);
   }
 
-   Future<void> navigateForgotPasswordView() async {
+  Future<void> navigateForgotPasswordView() async {
     FocusScope.of(currentContext).unfocus();
     await Get.toNamed(AppRoutes.temp1ForgotPassword);
   }
@@ -66,5 +67,10 @@ class Temp1LoginController extends BaseController {
     } catch (e) {
       this.showSnackBar(content: "Login error");
     }
+  }
+
+  void clearForm() {
+    emailController.clear();
+    passwordController.clear();
   }
 }

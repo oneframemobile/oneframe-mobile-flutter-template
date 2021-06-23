@@ -1,10 +1,10 @@
-import 'package:flutter_provider/app/core/model/auth/request/login_request.dart';
 import 'package:networking/networking.dart';
 import 'package:networking/networking/network_manager.dart';
 
+import '../../model/auth/request/login_request.dart';
 import '../../model/auth/request/register_request.dart';
 import '../../model/auth/response/login_response.dart';
-import '../../model/base/base_response.dart';
+import '../../model/error/error_response.dart';
 import 'api_learning.dart';
 
 class ApiService {
@@ -25,10 +25,10 @@ class ApiService {
     required NetworkListener listener,
   }) async {
     await _manager
-        .post<LoginRequest, LoginResponse, BaseResponse>(
+        .post<LoginRequest, LoginResponse, ErrorResponse>(
           url: "/accounts/login",
           type: LoginResponse(),
-          errorType: BaseResponse(),
+          errorType: ErrorResponse(),
           body: loginRequest,
           listener: listener,
         )
@@ -40,10 +40,10 @@ class ApiService {
     required NetworkListener listener,
   }) async {
     await _manager
-        .post<RegisterRequest, LoginResponse, BaseResponse>(
+        .post<RegisterRequest, LoginResponse, ErrorResponse>(
           url: "/accounts/register",
           type: LoginResponse(),
-          errorType: BaseResponse(),
+          errorType: ErrorResponse(),
           body: registerRequest,
           listener: listener,
         )

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider/app/core/util/ui_helper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RaisedGradientButton extends StatelessWidget {
   final Widget child;
   final Gradient? gradient;
-  final double height;
-  final double iconHeight;
+  final double? height;
+  final double? iconHeight;
   final Function? onPressed;
   final EdgeInsetsGeometry? margin;
   final IconData? rightIcon;
@@ -15,8 +17,8 @@ class RaisedGradientButton extends StatelessWidget {
     Key? key,
     required this.child,
     this.gradient,
-    this.height = 120.0,
-    this.iconHeight = 60.0,
+    this.height,
+    this.iconHeight,
     this.onPressed,
     this.rightIcon,
     this.leftIcon,
@@ -26,45 +28,45 @@ class RaisedGradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      margin: this.margin,
-      decoration: BoxDecoration(
-          gradient: gradient,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey[500]!,
-              offset: Offset(0.0, 1.5),
-              blurRadius: 1.5,
-            ),
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(this.radius))),
-      child: Material(
-        color: Colors.transparent,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Flexible(
-              child: Icon(
-                this.rightIcon,
-                size: iconHeight,
-                color: Colors.white.withAlpha(150),
+    return InkWell(
+      onTap: () => this.onPressed!(),
+      child: Container(
+        height: height ?? UIHelper.Space200.h,
+        margin: this.margin,
+        decoration: BoxDecoration(
+            gradient: gradient,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey[500]!,
+                offset: Offset(0.0, 1.5),
+                blurRadius: 1.5,
               ),
-            ),
-            Flexible(
-              flex: 8,
-              child: InkWell(
-                onTap: () => this.onPressed!(),
+            ],
+            borderRadius: BorderRadius.all(Radius.circular(this.radius))),
+        child: Material(
+          color: Colors.transparent,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Flexible(
+                child: Icon(
+                  this.leftIcon,
+                  size: iconHeight ?? UIHelper.Space150.h,
+                  color: Colors.white.withAlpha(150),
+                ),
+              ),
+              Flexible(
+                flex: 8,
                 child: Center(
                   child: child,
                 ),
               ),
-            ),
-            Flexible(
-              child: Icon(this.leftIcon),
-            ),
-          ],
+              Flexible(
+                child: Icon(this.rightIcon),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,16 +1,25 @@
 import 'package:networking/networking/serializable_object.dart';
 
-class LoginResponse implements SerializableObject<LoginResponse> {
-  String? token;
-  String? refreshToken;
-  LoginResponse() {}
+import '../../base/base_response.dart';
+import 'claim_list_response.dart';
+import 'claim_response.dart';
+
+class LoginResponse
+    with BaseResponse
+    implements SerializableObject<LoginResponse> {
+  late List<ClaimResponse> claims;
+  late String token;
+
+  LoginResponse();
+
   LoginResponse.fromJsonMap(Map<String, dynamic> json)
       : token = json["token"],
-        refreshToken = json["refreshToken"];
+        claims = ClaimListResponse().fromJsonList(json["claims"]);
 
   Map<String, dynamic> toJson() {
-    Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['token'] = token;
+    data['claims'] = claims;
     return data;
   }
 

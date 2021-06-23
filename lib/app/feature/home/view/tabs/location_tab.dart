@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LocationTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Konum'));
+    return Center(child: Icon(Icons.map));
     /*return Scaffold(
       appBar: AppBar(
         title: Text('Konum'),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/style/app_colors.dart';
-import 'package:flutter_provider/app/core/style/app_text_styles.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../core/base/view/widgets/button/raised_gradient_button.dart';
+import '../../../core/style/app_color.dart';
+import '../../../core/style/app_text_style.dart';
+import '../../../core/translation/localization_key.dart';
+import '../../../core/util/ui_helper.dart';
 import '../controller/select_template_controller.dart';
 
 class SelectTemplateView extends GetView<SelectTemplateController> {
@@ -14,7 +17,7 @@ class SelectTemplateView extends GetView<SelectTemplateController> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: RaisedGradientButton(
-        height: 360,
+        height: UIHelper.Space750.h,
         child: Text(
           text!,
           style: loginButtonStyle2,
@@ -28,29 +31,50 @@ class SelectTemplateView extends GetView<SelectTemplateController> {
     );
   }
 
-  Widget get _lottieView => Lottie.asset(
-        "assets/gif/line2.json",
-      );
+  Widget get _lottieView => Lottie.asset("assets/gif/line2.json");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+        padding: EdgeInsets.symmetric(
+          horizontal: UIHelper.Space120.w,
+          vertical: UIHelper.Space100.h,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: UIHelper.Space20.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: controller.onThemeTapped,
+                      child: Icon(Icons.palette),
+                    ),
+                    SizedBox(width: UIHelper.Space20.w),
+                    InkWell(
+                      onTap: controller.onLocalizationTapped,
+                      child: Icon(Icons.language),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Flexible(
+              flex: 5,
               child: buildClipRRect(
-                text: "OneFrame Template 1",
+                text: LocalizationKey.Template1.tr,
                 click: controller.template1Tapped,
               ),
             ),
             _lottieView,
             Flexible(
+              flex: 5,
               child: buildClipRRect(
-                text: "OneFrame Template 2",
+                text: LocalizationKey.Template2.tr,
                 click: controller.template2Tapped,
               ),
             ),

@@ -1,13 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/base/view/widgets/button/raised_gradient_button.dart';
 import '../../../../core/base/view/widgets/container/space.dart';
 import '../../../../core/base/view/widgets/stack/nested_stack.dart';
 import '../../../../core/base/view/widgets/text/title_text.dart';
-import '../../../../core/style/app_colors.dart';
-import '../../../../core/style/app_text_styles.dart';
+import '../../../../core/style/app_color.dart';
+import '../../../../core/style/app_text_style.dart';
+import '../../../../core/translation/localization_key.dart';
 import '../../../../core/util/ui_helper.dart';
 import '../../controller/forgot_password/temp_2_forgot_password_controller.dart';
 
@@ -18,7 +20,7 @@ class Temp2ForgotPasswordView extends GetView<Temp2ForgotPasswordController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(UIHelper.Space600),
+        preferredSize: Size.fromHeight(UIHelper.Space600.h),
         child: AppBar(
           backgroundColor: Colors.transparent,
           flexibleSpace: NestedStack(
@@ -27,40 +29,34 @@ class Temp2ForgotPasswordView extends GetView<Temp2ForgotPasswordController> {
           ),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: controller.back,
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: UIHelper.Space72.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             TitleText(
-              title: "Şifre Hatırlatma",
+              title: LocalizationKey.RemindPassword.tr,
               titleStyle: titleNormalTextStyle,
               description:
                   "Lorem ipsum dolor sit amet, consetetur sadipscing consetetur. Consetetur dolor sit amet, sed diam nonumy",
             ),
-            Space(
-              height: 50,
-            ),
+            Space(height: UIHelper.Space100.h),
             Text("ipsum dolor sit amet, consetetur "),
-            Space(
-              height: 100,
-            ),
+            Space(height: UIHelper.Space100.h),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              padding: EdgeInsets.all(UIHelper.Space50.r),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: RaisedGradientButton(
-                  height: 140,
-                  rightIcon: Icons.mail_outline,
-                  child: Text(
-                    'E-Posta Gönder',
-                    style: loginButtonStyle,
-                  ),
+                  height: UIHelper.Space300.h,
+                  leftIcon: Icons.mail_outline,
+                  child: Text(LocalizationKey.SendEmail.tr,
+                      style: loginButtonStyle),
                   gradient: LinearGradient(
                     colors: forgotEMailButtonGradient,
                   ),
@@ -68,20 +64,16 @@ class Temp2ForgotPasswordView extends GetView<Temp2ForgotPasswordController> {
                 ),
               ),
             ),
-            Space(
-              height: 30,
-            ),
+            Space(height: UIHelper.Space100.h),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: RaisedGradientButton(
-                  height: 140,
-                  rightIcon: Icons.sms,
-                  child: Text(
-                    'SMS Gönder',
-                    style: loginButtonStyle,
-                  ),
+                  height: UIHelper.Space300.h,
+                  leftIcon: Icons.sms,
+                  child:
+                      Text(LocalizationKey.SendSms.tr, style: loginButtonStyle),
                   gradient: LinearGradient(
                     colors: forgotSMSButtonGradient,
                   ),
@@ -92,7 +84,7 @@ class Temp2ForgotPasswordView extends GetView<Temp2ForgotPasswordController> {
             Flexible(
               flex: 1,
               child: SafeArea(
-                minimum: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                minimum: EdgeInsets.fromLTRB(10, 0, 0, 10),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: RichText(
@@ -102,11 +94,11 @@ class Temp2ForgotPasswordView extends GetView<Temp2ForgotPasswordController> {
                           text:
                               "Eğer farklı bir işleminiz varsa, admine ulaşmak için "),
                       TextSpan(
-                          style: hyperBlueTextStyle,
-                          text: "e-posta ",
-                          recognizer: TapGestureRecognizer()
-                            ..onTap =
-                                () => controller.sendMail()),
+                        style: hyperBlueTextStyle,
+                        text: "e-posta ",
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = controller.sendMail,
+                      ),
                       TextSpan(
                           style: hyperTextStyle, text: " gönderebilirsiniz.")
                     ]),

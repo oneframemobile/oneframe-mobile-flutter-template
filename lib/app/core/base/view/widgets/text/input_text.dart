@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../style/app_colors.dart';
-import '../../../../style/app_text_styles.dart';
+import '../../../../style/app_color.dart';
+import '../../../../style/app_text_style.dart';
 
 class InputText extends StatelessWidget {
   final String? labelText;

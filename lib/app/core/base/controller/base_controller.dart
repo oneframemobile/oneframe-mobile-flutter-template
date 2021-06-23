@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../view/components/custom_progress_bar.dart';
+
 class BaseController extends GetxController {
   BuildContext get currentContext =>
       Get.context != null ? Get.context! : Get.overlayContext!;
@@ -9,7 +11,7 @@ class BaseController extends GetxController {
     showDialog(
       context: currentContext,
       barrierDismissible: false,
-      builder: (_) => CircularProgressIndicator(),
+      builder: (_) => CustomProgressBar(),
     );
   }
 
@@ -27,5 +29,9 @@ class BaseController extends GetxController {
           ),
         )
         .closed;
+  }
+
+  void back() {
+    Get.back();
   }
 }

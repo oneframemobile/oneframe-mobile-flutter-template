@@ -3,6 +3,6 @@ import 'package:flutter/material.dart';
 class SettingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Ayarlar'));
+    return Center(child:Icon(Icons.settings));
   }
 }

@@ -1,18 +1,18 @@
 import 'package:networking/networking/serializable_object.dart';
 
 class LoginRequest implements SerializableObject<LoginRequest> {
-  String? userName;
+  String? email;
   String? password;
 
-  LoginRequest({this.userName, this.password});
+  LoginRequest({this.email, this.password});
 
   LoginRequest.fromJsonMap(Map<String, dynamic> map)
-      : userName = map["userName"],
+      : email = map["email"],
         password = map["password"];
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userName'] = userName;
+    data['email'] = email;
     data['password'] = password;
     return data;
   }

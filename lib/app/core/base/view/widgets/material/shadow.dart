@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/style/app_colors.dart';
+import 'package:flutter_provider/app/core/style/app_color.dart';
 
 class Shadow extends StatelessWidget {
   final Widget child;
@@ -18,7 +18,7 @@ class Shadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(this.padding),
+      padding: EdgeInsets.symmetric(vertical: this.padding),
       child: Material(
         elevation: this.elevation,
         shadowColor: this.color,

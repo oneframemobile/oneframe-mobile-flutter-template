@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider/app/core/translation/localization_key.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/base/view/widgets/button/raised_gradient_button.dart';
 import '../../../../core/base/view/widgets/container/space.dart';
 import '../../../../core/base/view/widgets/material/shadow.dart';
-import '../../../../core/style/app_colors.dart';
-import '../../../../core/style/app_decorations.dart';
-import '../../../../core/style/app_text_styles.dart';
+import '../../../../core/style/app_color.dart';
+import '../../../../core/style/app_decoration.dart';
+import '../../../../core/style/app_text_style.dart';
+import '../../../../core/util/ui_helper.dart';
 import '../../controller/register/temp_1_register_controller.dart';
 
 class Temp1RegisterTab extends GetView<Temp1RegisterController> {
@@ -15,11 +18,10 @@ class Temp1RegisterTab extends GetView<Temp1RegisterController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        padding: EdgeInsets.only(left: 30, right: 30),
-        child: SingleChildScrollView(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: UIHelper.Space72.w),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Column(
@@ -27,42 +29,38 @@ class Temp1RegisterTab extends GetView<Temp1RegisterController> {
                   Shadow(
                     child: TextFormField(
                       controller: controller.nameController,
-                      decoration: decoration("Ad"),
+                      decoration: decoration(LocalizationKey.Name.tr),
                     ),
                   ),
-                  Space(height: 20),
+                  Space(height: UIHelper.Space100.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.surnameController,
-                      decoration: decoration("Soyad"),
+                      decoration: decoration(LocalizationKey.Surname.tr),
                     ),
                   ),
-                  Space(height: 20),
+                  Space(height: UIHelper.Space100.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.mailController,
-                      decoration: decoration("Email"),
+                      decoration: decoration(LocalizationKey.Email.tr),
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-                  Space(
-                    height: 20,
-                  ),
+                  Space(height: UIHelper.Space100.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.phoneController,
-                      decoration: decoration("Telefon"),
+                      decoration: decoration(LocalizationKey.Phone.tr),
                     ),
                   ),
-                  Space(
-                    height: 20,
-                  ),
+                  Space(height: UIHelper.Space100.h),
                   Shadow(
                     child: Obx(() => TextFormField(
                           controller: controller.passwordController,
                           obscureText: controller.isPasswordObscure.value,
                           decoration: decoration(
-                            "Şifre",
+                            LocalizationKey.Password.tr,
                             suffix: InkWell(
                               onTap: controller.changeVisibility,
                               child: Icon(
@@ -75,20 +73,18 @@ class Temp1RegisterTab extends GetView<Temp1RegisterController> {
                           ),
                         )),
                   ),
-                  Space(
-                    height: 20,
-                  ),
+                  Space(height: UIHelper.Space100.h),
                   RaisedGradientButton(
                     child: Text(
-                            'Uye ol',
-                            style: loginButtonStyle,
-                          ),
+                      LocalizationKey.Register.tr,
+                      style: loginButtonStyle,
+                    ),
                     gradient: LinearGradient(
                       colors: loginButtonGradient,
                     ),
                     onPressed: controller.registerTapped,
                   ),
-                  SizedBox(height: 30),
+                  Space(height: UIHelper.Space100.h),
                 ],
               ),
             ],

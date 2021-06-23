@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:networking/networking.dart';
 
-import 'app/core/route/app_pages.dart';
 import 'app/core/base/binding/base_binding.dart';
+import 'app/core/route/app_pages.dart';
+import 'app/core/translation/app_translations.dart';
 
 void main() {
   NetworkingFactory.init();
@@ -24,6 +25,8 @@ class App extends StatelessWidget {
         initialRoute: AppRoutes.splash,
         getPages: AppPages.pages,
         initialBinding: BaseBinding(),
+        locale: Locale('en', 'US'),
+        translationsKeys: AppTranslation.translations,
       ),
     );
   }

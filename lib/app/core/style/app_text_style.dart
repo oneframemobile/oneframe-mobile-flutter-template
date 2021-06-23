@@ -3,7 +3,7 @@ import 'package:flutter_provider/app/core/util/ui_helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final welcomeTextStyle = TextStyle(
-  color: Color(0xff1a1a1a),
+  color: Colors.grey,//Color(0xff1a1a1a),
   fontWeight: FontWeight.w700,
   fontFamily: "Poppins",
   fontStyle: FontStyle.normal,
@@ -11,7 +11,7 @@ final welcomeTextStyle = TextStyle(
 );
 
 final titleNormalTextStyle = TextStyle(
-  color: Color(0xff1a1a1a),
+  color: Colors.grey,//Color(0xff1a1a1a),
   fontWeight: FontWeight.w700,
   fontFamily: "Poppins",
   fontStyle: FontStyle.normal,
@@ -42,6 +42,14 @@ final tabTextStyle = TextStyle(
   fontSize: UIHelper.Space60.sp,
 );
 
+final tabUnselectedTextStyle = TextStyle(
+  color: const Color(0xffffffff),
+  fontWeight: FontWeight.w600,
+  fontFamily: "Poppins",
+  fontStyle: FontStyle.normal,
+  fontSize: UIHelper.Space50.sp,
+);
+
 final hyperTextStyle = TextStyle(
   color: Color(0xff767676),
   fontWeight: FontWeight.w400,
@@ -56,14 +64,6 @@ final hyperBlueTextStyle = TextStyle(
   fontFamily: "Poppins",
   fontStyle: FontStyle.normal,
   fontSize: UIHelper.Space40.sp,
-);
-
-final tabUnselectedTextStyle = TextStyle(
-  color: const Color(0xffffffff),
-  fontWeight: FontWeight.w200,
-  fontFamily: "Poppins",
-  fontStyle: FontStyle.normal,
-  fontSize: UIHelper.Space50.sp,
 );
 
 final forgotTextStyle = TextStyle(
