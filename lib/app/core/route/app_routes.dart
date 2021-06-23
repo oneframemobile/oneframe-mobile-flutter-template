@@ -13,5 +13,6 @@ abstract class AppRoutes {
   static const temp2ForgotPassword = '/temp2ForgotPassword';  
   static const temp2Email = '/temp2Email';  
   static const temp2Sms = '/temp2Sms';
+  
   static const home = '/home';
 }
