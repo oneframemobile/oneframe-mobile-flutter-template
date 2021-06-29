@@ -31,7 +31,17 @@ class BaseController extends GetxController {
         .closed;
   }
 
-  void back() {
-    Get.back();
+  Future<void> navigateToView({required String path}) async {
+    FocusScope.of(currentContext).unfocus();
+    await Get.toNamed(path);
+  }
+
+  Future<void> navigateOffView({required String path}) async {
+    FocusScope.of(currentContext).unfocus();
+    await Get.offNamed(path);
+  }
+
+  bool isKeyboardOpen() {
+    return MediaQuery.of(currentContext).viewInsets.bottom != 0;
   }
 }

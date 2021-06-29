@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider/app/core/route/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -11,7 +12,6 @@ import '../../../core/util/ui_helper.dart';
 import '../controller/select_template_controller.dart';
 
 class SelectTemplateView extends GetView<SelectTemplateController> {
-  final controller = Get.find();
 
   ClipRRect buildClipRRect({String? text, VoidCallback? click}) {
     return ClipRRect(
@@ -67,7 +67,8 @@ class SelectTemplateView extends GetView<SelectTemplateController> {
               flex: 5,
               child: buildClipRRect(
                 text: LocalizationKey.Template1.tr,
-                click: controller.template1Tapped,
+                click: () =>
+                    controller.navigateToView(path: AppRoutes.temp1Auth),
               ),
             ),
             _lottieView,
@@ -75,7 +76,8 @@ class SelectTemplateView extends GetView<SelectTemplateController> {
               flex: 5,
               child: buildClipRRect(
                 text: LocalizationKey.Template2.tr,
-                click: controller.template2Tapped,
+                click: () =>
+                    controller.navigateToView(path: AppRoutes.temp2Auth),
               ),
             ),
           ],

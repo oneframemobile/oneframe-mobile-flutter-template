@@ -1,11 +1,11 @@
+import 'package:flutter_provider/app/api/oneframe_api_manager.dart';
 import 'package:flutter_provider/app/core/model/auth/request/login_request.dart';
 import 'package:flutter_provider/app/core/model/auth/response/login_response.dart';
-import 'package:flutter_provider/app/core/service/api/api_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:networking/networking.dart';
 
 void main() {
-  final ApiService _service = ApiService();
+  final OneFrameApiManager _service = OneFrameApiManager();
 
   test("Successful Login", () async {
     bool isLoggedIn = false;

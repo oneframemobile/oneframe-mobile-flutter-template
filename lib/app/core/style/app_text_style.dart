@@ -23,7 +23,7 @@ final loginButtonStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontFamily: "Poppins",
   fontStyle: FontStyle.normal,
-  fontSize: UIHelper.Space60.sp,
+  fontSize: UIHelper.Space50.sp,
 );
 
 final loginButtonStyle2 = TextStyle(

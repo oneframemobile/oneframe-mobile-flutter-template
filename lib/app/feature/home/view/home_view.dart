@@ -8,7 +8,6 @@ import '../../../core/util/ui_helper.dart';
 import '../controller/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  final controller = Get.find();
 
   @override
   Widget build(BuildContext context) {

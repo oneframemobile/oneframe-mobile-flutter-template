@@ -5,6 +5,7 @@ import 'package:networking/networking.dart';
 
 import 'app/core/base/binding/base_binding.dart';
 import 'app/core/route/app_pages.dart';
+import 'app/core/style/app_theme.dart';
 import 'app/core/translation/app_translations.dart';
 
 void main() {
@@ -25,8 +26,10 @@ class App extends StatelessWidget {
         initialRoute: AppRoutes.splash,
         getPages: AppPages.pages,
         initialBinding: BaseBinding(),
-        locale: Locale('en', 'US'),
+        locale: Get.deviceLocale,
+        fallbackLocale: Locale('en', 'US'),
         translationsKeys: AppTranslation.translations,
+        theme: darkThemeData,
       ),
     );
   }
