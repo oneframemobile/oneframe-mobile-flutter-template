@@ -15,13 +15,48 @@ The state management is GetX in use on this app. GetX is an extra-light and powe
 - Template 2
 - Home
 
-Features consist of 3 parts; binding, controller and view.
+Features consist of 4 parts; binding, repository, controller and view.
 
 Bindings are classes where we can declare our dependencies and then ‘bind’ them to the routes. However, this means that we can only use it when using GetX for route management.
+
+Repositories are the middle layer between controllers and services. Controller can not reach to service layer directly. It should talk with repository that talks with service layer.
 
 Controllers are classes where all our business logic goes. All the variables and methods are placed here and can be accessed from the view.
 
 Views are the faces of the app. The users interact with them.
+
+### A Sample Scenario
+Selecting a template from the SelectTemplate page and login successfully.
+
+-- *When SelectTemplateView created*
+
+- SelectTemplateController has been initialized
+- SelectTemplateController has been binded
+- SplashController has been removed from the memory
+- SelectTemplateView has been ready for user interaction.
+
+-- *When template selection made*
+
+- Redirects to AuthenticationView of the selected template
+- AuthenticationView of the selected template has been created
+- AuthenticationController has been initialized
+- AuthenticationController has been binded
+- LoginController has been initialized *(There is a LoginTab on the AuthenticationView and the logic of the tab manages through the LoginController)*
+- LoginController has been bind with AuthenticationRepository parameter *(AuthenticationRepository already initialized on BaseBinding)*
+- LoginView has been ready for user interaction.
+
+-- *When the user clicks the login button to login successfully*
+
+- LoginController's onLoginTapped method runs
+- The related method triggers the login method of AuthenticationRepository
+- The login method of AuthenticationRepository talks to the related service and receives the data.
+- Received data returns to LoginController
+- Redirects to HomeView *(the successfully response)*
+- HomeView has been created
+- HomeController has been initialized
+- HomeController has been binded
+- LoginController deleted from memory
+- AuthenticationController deleted from memory
 
 ### Packages
 - [GetX](https://pub.dev/packages/get) 
