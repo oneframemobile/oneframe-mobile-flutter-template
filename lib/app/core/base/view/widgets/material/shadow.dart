@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/style/app_color.dart';
+
+import '../../../../style/app_color.dart';
 
 class Shadow extends StatelessWidget {
   final Widget child;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/util/ui_helper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../util/ui_helper.dart';
 
 class RaisedGradientButton extends StatelessWidget {
   final Widget child;

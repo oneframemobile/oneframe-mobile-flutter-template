@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/route/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +9,7 @@ import '../../../../../core/base/view/widgets/button/social_button.dart';
 import '../../../../../core/base/view/widgets/container/space.dart';
 import '../../../../../core/base/view/widgets/material/shadow.dart';
 import '../../../../../core/base/view/widgets/text/title_text.dart';
+import '../../../../../core/route/app_pages.dart';
 import '../../../../../core/style/app_color.dart';
 import '../../../../../core/style/app_decoration.dart';
 import '../../../../../core/style/app_text_style.dart';

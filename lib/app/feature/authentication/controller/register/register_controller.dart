@@ -24,9 +24,9 @@ class RegisterController extends BaseController {
       mask: '(###) ### ## ##', filter: {"#": RegExp(r'[0-9]')});
 
   RxBool isPasswordObscure = true.obs;
-  AuthenticationRepository repoistory;
+  AuthenticationRepository _repository;
 
-  RegisterController(this.repoistory);
+  RegisterController(this._repository);
 
   void changeVisibility() {
     isPasswordObscure.value = !isPasswordObscure.value;
@@ -56,7 +56,7 @@ class RegisterController extends BaseController {
         registerRequest.phoneNumber = phoneController.text;
         registerRequest.password = passwordController.text;
 
-        await repoistory.register(
+        await _repository.register(
             registerRequest: registerRequest,
             listener: NetworkListener()
               ..onSuccess((dynamic result) {

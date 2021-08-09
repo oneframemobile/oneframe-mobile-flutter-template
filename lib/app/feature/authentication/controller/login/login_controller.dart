@@ -20,9 +20,9 @@ class LoginController extends BaseController {
 
   RxBool isPasswordObscure = true.obs;
 
-  AuthenticationRepository repository;
+  AuthenticationRepository _repository;
 
-  LoginController(this.repository);
+  LoginController(this._repository);
 
   void changeVisibility() {
     isPasswordObscure.value = !isPasswordObscure.value;
@@ -40,7 +40,7 @@ class LoginController extends BaseController {
 
         loginRequest.email = emailController.text;
         loginRequest.password = passwordController.text;
-        await repository.login(
+        await _repository.login(
             loginRequest: loginRequest,
             listener: NetworkListener()
               ..onSuccess((dynamic result) {

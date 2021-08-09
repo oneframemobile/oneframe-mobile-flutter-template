@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/base/view/widgets/button/raised_gradient_button.dart';
-import 'package:flutter_provider/app/core/base/view/widgets/container/space.dart';
-import 'package:flutter_provider/app/core/base/view/widgets/text/input_text.dart';
-import 'package:flutter_provider/app/core/base/view/widgets/text/title_text.dart';
-import 'package:flutter_provider/app/core/style/app_color.dart';
-import 'package:flutter_provider/app/core/style/app_text_style.dart';
-import 'package:flutter_provider/app/core/translation/localization_key.dart';
-import 'package:flutter_provider/app/core/util/ui_helper.dart';
-import 'package:flutter_provider/app/feature/authentication/controller/resend/email_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+
+import '../../../../../core/base/view/widgets/button/raised_gradient_button.dart';
+import '../../../../../core/base/view/widgets/container/space.dart';
+import '../../../../../core/base/view/widgets/text/input_text.dart';
+import '../../../../../core/base/view/widgets/text/title_text.dart';
+import '../../../../../core/style/app_color.dart';
+import '../../../../../core/style/app_text_style.dart';
+import '../../../../../core/translation/localization_key.dart';
+import '../../../../../core/util/ui_helper.dart';
+import '../../../controller/resend/email_controller.dart';
 
 class Temp2EmailView extends GetView<EmailController> {
 

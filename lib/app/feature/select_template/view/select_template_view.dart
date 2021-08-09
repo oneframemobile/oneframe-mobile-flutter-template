@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/app/core/route/app_pages.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../core/base/view/widgets/button/raised_gradient_button.dart';
+import '../../../core/route/app_pages.dart';
 import '../../../core/style/app_color.dart';
 import '../../../core/style/app_text_style.dart';
 import '../../../core/translation/localization_key.dart';
