@@ -17,7 +17,7 @@ class SocailButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _height = UIHelper.Space150.h;
+    final _height = UIHelper.Space175.h;
     final _spacing = UIHelper.Space30.w;
 
     return Wrap(

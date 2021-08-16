@@ -8,7 +8,7 @@ final welcomeTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
   fontFamily: "Poppins",
   fontStyle: FontStyle.normal,
-  fontSize: UIHelper.Space60.sp,
+  fontSize: UIHelper.Space90.sp,
 );
 
 final titleNormalTextStyle = TextStyle(

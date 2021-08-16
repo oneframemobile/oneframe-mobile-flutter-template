@@ -15,6 +15,7 @@ class UIHelper {
   static const double Space100 = 100.0;
   static const double Space120 = 120.0;
   static const double Space150 = 150.0;
+  static const double Space175 = 175.0;
   static const double Space200 = 200.0;
   static const double Space250 = 250.0;
   static const double Space275 = 275.0;
@@ -55,6 +56,7 @@ class UIHelper {
   static const double fontSize16 = 16;
   static const double fontSize24 = 24;
   static const double fontSize32 = 32;
+  static const double fontSize36 = 36;
   static const double fontSize40 = 40;
   static const double fontSize48 = 48;
   static const double fontSize64 = 64;

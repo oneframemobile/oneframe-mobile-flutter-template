@@ -12,9 +12,7 @@ import '../../../../../core/translation/localization_key.dart';
 import '../../../../../core/util/ui_helper.dart';
 import '../../../controller/register/register_controller.dart';
 
-
 class Temp2RegisterTab extends GetView<RegisterController> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +31,7 @@ class Temp2RegisterTab extends GetView<RegisterController> {
                 nextFocusNode: controller.surnameFocus,
                 textInputType: TextInputType.name,
               ),
-              Space(height: UIHelper.Space100.h),
+              Space(height: UIHelper.Space200.h),
               InputText(
                 labelText: LocalizationKey.Surname.tr,
                 textEditingController: controller.surnameController,
@@ -41,7 +39,7 @@ class Temp2RegisterTab extends GetView<RegisterController> {
                 nextFocusNode: controller.emailFocus,
                 textInputType: TextInputType.name,
               ),
-              Space(height: UIHelper.Space100.h),
+              Space(height: UIHelper.Space200.h),
               InputText(
                 labelText: LocalizationKey.Email.tr,
                 textEditingController: controller.emailController,
@@ -49,7 +47,7 @@ class Temp2RegisterTab extends GetView<RegisterController> {
                 nextFocusNode: controller.phoneFocus,
                 textInputType: TextInputType.emailAddress,
               ),
-              Space(height: UIHelper.Space100.h),
+              Space(height: UIHelper.Space200.h),
               InputText(
                 labelText: LocalizationKey.Phone.tr,
                 textEditingController: controller.phoneController,
@@ -58,7 +56,7 @@ class Temp2RegisterTab extends GetView<RegisterController> {
                 textInputType: TextInputType.phone,
                 inputFormatters: [controller.inputFormatter],
               ),
-              Space(height: UIHelper.Space100.h),
+              Space(height: UIHelper.Space200.h),
               Obx(() => InputText(
                     textEditingController: controller.passwordController,
                     labelText: LocalizationKey.Password.tr,
@@ -77,18 +75,21 @@ class Temp2RegisterTab extends GetView<RegisterController> {
                       controller.changeVisibility();
                     },
                   )),
-              Space(height: UIHelper.Space200.h),
+              Space(height: UIHelper.Space600.h),
               ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: RaisedGradientButton(
-                    height: UIHelper.Space200.h,
-                    child: Text(LocalizationKey.Register.tr.toUpperCase(),
-                        style: loginButtonStyle),
-                    gradient: LinearGradient(
-                      colors: loginButtonGradient,
-                    ),
-                    onPressed: controller.registerTapped,
-                  )),
+                borderRadius: BorderRadius.circular(UIHelper.Radius60),
+                child: RaisedGradientButton(
+                  height: UIHelper.Space150.h,
+                  child: Text(
+                    LocalizationKey.Register.tr.toUpperCase(),
+                    style: loginButtonStyle,
+                  ),
+                  gradient: LinearGradient(
+                    colors: loginButtonGradient,
+                  ),
+                  onPressed: controller.registerTapped,
+                ),
+              ),
             ],
           ),
         ),

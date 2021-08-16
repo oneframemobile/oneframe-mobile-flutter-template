@@ -13,7 +13,6 @@ import '../../../../../core/util/ui_helper.dart';
 import '../../../controller/register/register_controller.dart';
 
 class Temp1RegisterTab extends GetView<RegisterController> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,14 +30,14 @@ class Temp1RegisterTab extends GetView<RegisterController> {
                       decoration: decoration(LocalizationKey.Name.tr),
                     ),
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space200.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.surnameController,
                       decoration: decoration(LocalizationKey.Surname.tr),
                     ),
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space200.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.emailController,
@@ -46,14 +45,14 @@ class Temp1RegisterTab extends GetView<RegisterController> {
                       keyboardType: TextInputType.emailAddress,
                     ),
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space200.h),
                   Shadow(
                     child: TextFormField(
                       controller: controller.phoneController,
                       decoration: decoration(LocalizationKey.Phone.tr),
                     ),
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space200.h),
                   Shadow(
                     child: Obx(() => TextFormField(
                           controller: controller.passwordController,
@@ -72,8 +71,9 @@ class Temp1RegisterTab extends GetView<RegisterController> {
                           ),
                         )),
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space250.h),
                   RaisedGradientButton(
+                    height: UIHelper.Space150.h,
                     child: Text(
                       LocalizationKey.Register.tr,
                       style: loginButtonStyle,

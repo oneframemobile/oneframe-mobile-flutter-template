@@ -26,7 +26,7 @@ class Temp1AuthView extends GetView<AuthenticationController> {
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  expandedHeight: UIHelper.Space700.h,
+                  expandedHeight: UIHelper.Space500.h,
                   floating: true,
                   pinned: true,
                   forceElevated: innerBoxIsScrolled,

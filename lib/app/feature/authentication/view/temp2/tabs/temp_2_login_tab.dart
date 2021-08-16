@@ -15,22 +15,21 @@ import '../../../../../core/util/ui_helper.dart';
 import '../../../controller/login/login_controller.dart';
 
 class Temp2LoginTab extends GetView<LoginController> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: UIHelper.Space72.w),
+          padding: EdgeInsets.symmetric(horizontal: UIHelper.Space120.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TitleText(title: LocalizationKey.Welcome.tr),
               Text(
                 "Lorem ipsum dolor sit amet, consetetur sadipscing consetetur. Consetetur dolor sit amet, sed diam nonumy",
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 14),
               ),
-              Space(height: UIHelper.Space100.h),
+              Space(height: UIHelper.Space200.h),
               Column(
                 children: <Widget>[
                   InputText(
@@ -41,7 +40,7 @@ class Temp2LoginTab extends GetView<LoginController> {
                     leftIcon: Icons.email,
                     textInputType: TextInputType.emailAddress,
                   ),
-                  Space(height: UIHelper.Space100.h),
+                  Space(height: UIHelper.Space250.h),
                   Obx(() => InputText(
                         textEditingController: controller.passwordController,
                         labelText: LocalizationKey.Password.tr,
@@ -87,7 +86,8 @@ class Temp2LoginTab extends GetView<LoginController> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: UIHelper.Space40.h),
+                    padding:
+                        EdgeInsets.symmetric(vertical: UIHelper.Space100.h),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -122,26 +122,30 @@ class Temp2LoginTab extends GetView<LoginController> {
                   InkWell(
                     onTap: () {},
                     child: RichText(
-                        text: TextSpan(children: [
-                      TextSpan(
-                        text: LocalizationKey.NoAccount.tr,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontStyle: FontStyle.normal,
-                          fontSize: UIHelper.fontSize40.sp,
-                        ),
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: LocalizationKey.NoAccount.tr,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontStyle: FontStyle.normal,
+                              fontSize: UIHelper.fontSize36.sp,
+                            ),
+                          ),
+                          WidgetSpan(child: SizedBox(width: UIHelper.Space5)),
+                          TextSpan(
+                            text: LocalizationKey.CreateAccount.tr,
+                            style: TextStyle(
+                              color: blue,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FontStyle.normal,
+                              decoration: TextDecoration.underline,
+                              fontSize: UIHelper.fontSize36.sp,
+                            ),
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: LocalizationKey.CreateAccount.tr,
-                        style: TextStyle(
-                          color: blue,
-                          fontWeight: FontWeight.w500,
-                          fontStyle: FontStyle.normal,
-                          decoration: TextDecoration.underline,
-                          fontSize: UIHelper.fontSize40.sp,
-                        ),
-                      ),
-                    ])),
+                    ),
                   )
                 ],
               ),

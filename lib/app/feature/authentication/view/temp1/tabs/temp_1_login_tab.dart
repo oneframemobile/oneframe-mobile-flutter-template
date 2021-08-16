@@ -24,7 +24,7 @@ class Temp1LoginTab extends GetView<LoginController> {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: UIHelper.Space72.w),
+          padding: EdgeInsets.symmetric(horizontal: UIHelper.Space120.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -41,7 +41,7 @@ class Temp1LoginTab extends GetView<LoginController> {
                         validator: ValidatorHelper.emptyControl,
                       ),
                     ),
-                    Space(height: UIHelper.Space100.h),
+                    Space(height: UIHelper.Space200.h),
                     Shadow(
                       child: Obx(
                         () => TextFormField(
@@ -63,8 +63,9 @@ class Temp1LoginTab extends GetView<LoginController> {
                         ),
                       ),
                     ),
-                    Space(height: UIHelper.Space200.h),
+                    Space(height: UIHelper.Space250.h),
                     RaisedGradientButton(
+                      height: UIHelper.Space150.h,
                       child: Text(
                         LocalizationKey.Login.tr.toUpperCase(),
                         style: loginButtonStyle,
@@ -72,7 +73,7 @@ class Temp1LoginTab extends GetView<LoginController> {
                       gradient: LinearGradient(colors: loginButtonGradient),
                       onPressed: controller.loginTapped,
                     ),
-                    Space(height: UIHelper.Space100.h),
+                    Space(height: UIHelper.Space200.h),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -82,7 +83,7 @@ class Temp1LoginTab extends GetView<LoginController> {
                             style: forgotTextStyle),
                       ),
                     ),
-                    Space(height: UIHelper.Space100.h),
+                    Space(height: UIHelper.Space200.h),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -104,7 +105,7 @@ class Temp1LoginTab extends GetView<LoginController> {
                         )
                       ],
                     ),
-                    Space(height: UIHelper.Space100.h),
+                    Space(height: UIHelper.Space200.h),
                     SocailButton(
                       onGooglePressed: null,
                       onFacebookPressed: null,

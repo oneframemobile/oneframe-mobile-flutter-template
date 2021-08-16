@@ -25,7 +25,6 @@ class TitleText extends StatelessWidget {
           this.title,
           style: titleStyle ?? welcomeTextStyle,
         ),
-        Space(),
         this.description == null
             ? Space()
             : Text(description!, maxLines: 2, softWrap: true),
