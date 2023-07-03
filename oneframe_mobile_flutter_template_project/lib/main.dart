@@ -18,10 +18,20 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(
-        WidgetsBinding.instance!.window.physicalSize.width,
-        WidgetsBinding.instance!.window.physicalSize.height,
+        //NOT:03.07.2023 SEÇİLİ OLAN CİHAZIN BOYUTUNU GELİŞTİRME SONUNDA SABİT OLARAK VERMEK GEREKİYOR. TÜM CİHAZLAR BURDAKİ width ve height ÜZERİNDEN ÇİZİLİYOR.
+        //Örnek olarak eğer IPHONE 14 PRO MAX ile geliştirme yapıyorsak width ve height bilgileri aşağıdaki gibidir.
+        WidgetsBinding.instance!.window.physicalSize.width,//1290.0
+        WidgetsBinding.instance!.window.physicalSize.height,//2796.0
       ),
-      builder: (context, child) => GetMaterialApp(),
+      builder: (context, child) => GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.splash,
+        getPages: AppPages.pages,
+        initialBinding: BaseBinding(),
+        locale: Get.deviceLocale,
+        fallbackLocale: Locale('en', 'US'),
+        translationsKeys: AppTranslation.translations,
+        theme: darkThemeData),
     );
   }
 }
