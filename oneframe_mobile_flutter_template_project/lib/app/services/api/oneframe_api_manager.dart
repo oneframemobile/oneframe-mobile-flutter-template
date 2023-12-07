@@ -1,10 +1,10 @@
 import 'package:networking/networking.dart';
 import 'package:networking/networking/network_manager.dart';
 
-import '../core/model/auth/request/login_request.dart';
-import '../core/model/auth/request/register_request.dart';
-import '../core/model/auth/response/login_response.dart';
-import '../core/model/error/error_response.dart';
+import '../../core/model/auth/request/login_request.dart';
+import '../../core/model/auth/request/register_request.dart';
+import '../../core/model/auth/response/login_response.dart';
+import '../../core/model/error/error_response.dart';
 import 'oneframe_api_learning.dart';
 
 class OneFrameApiManager {
