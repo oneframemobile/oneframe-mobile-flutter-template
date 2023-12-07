@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../api/oneframe_api_manager.dart';
+import '../../../services/api/oneframe_api_manager.dart';
 
 class BaseBinding implements Bindings {
   @override

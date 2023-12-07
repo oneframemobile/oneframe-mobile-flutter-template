@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oneframe_mobile_flutter_template_project/app/services/push/fcm_service.dart';
 
 import '../../../core/base/controller/base_controller.dart';
 import '../../../core/translation/localization_key.dart';
@@ -14,17 +15,19 @@ class HomeController extends BaseController {
     DashboardTab(),
     NotificationTab(),
     LocationTab(),
-    SettingTab(),   
+    SettingTab(),
   ];
 
   RxInt screenIndex = 0.obs;
-  
+
   late Widget currentScreen;
 
   @override
-  void onInit() {
+  void onInit() async {
     currentScreen = screenList.first;
+    var token = await FCMService.getToken();
     super.onInit();
+    showSnackBar(content: "FCM TOKEN : $token");
   }
 
   void changeScreen({required int index}) {
@@ -34,17 +37,17 @@ class HomeController extends BaseController {
 
   String getTitle() {
     switch (screenIndex.value) {
-      case 0: 
-      return LocalizationKey.Home.tr;
-      case 1: 
-      return LocalizationKey.Notification.tr;
-      case 2: 
-      return LocalizationKey.Location.tr;
-      case 3: 
-      return LocalizationKey.Settings.tr;
+      case 0:
+        return LocalizationKey.Home.tr;
+      case 1:
+        return LocalizationKey.Notification.tr;
+      case 2:
+        return LocalizationKey.Location.tr;
+      case 3:
+        return LocalizationKey.Settings.tr;
 
       default:
-      return LocalizationKey.Unknown.tr;
+        return LocalizationKey.Unknown.tr;
     }
   }
 }

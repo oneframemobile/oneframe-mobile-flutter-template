@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../api/oneframe_api_manager.dart';
+import '../../../services/api/oneframe_api_manager.dart';
 import '../controller/authentication_controller.dart';
 import '../controller/login/login_controller.dart';
 import '../controller/register/register_controller.dart';

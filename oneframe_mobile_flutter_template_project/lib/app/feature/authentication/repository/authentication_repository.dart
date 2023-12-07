@@ -1,6 +1,6 @@
 import 'package:networking/networking/network_listener.dart';
 
-import '../../../api/oneframe_api_manager.dart';
+import '../../../services/api/oneframe_api_manager.dart';
 import '../../../core/base/repository/base_repository.dart';
 import '../../../core/model/auth/request/login_request.dart';
 import '../../../core/model/auth/request/register_request.dart';
