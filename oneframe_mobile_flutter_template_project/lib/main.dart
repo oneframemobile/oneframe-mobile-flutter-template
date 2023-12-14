@@ -10,7 +10,6 @@ import 'core/translation/app_translations.dart';
 import 'services/crashlytics/crashlytics_service.dart';
 import 'services/firebase_core/firebase_core_service.dart';
 import 'services/push/fcm_service.dart';
-
 /*
     Firebase Analytics kullanımı için eklediğiniz feature'ın controller'ında aşağıdaki namespace'i ekleyip,
     CodeGeneration'ın oluşturduğu base controller class'ında bulnan logEventFirebaseAnalytics method ile gerçekleştirebilirsiniz.
