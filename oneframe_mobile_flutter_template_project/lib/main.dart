@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:networking/networking.dart';
-import 'package:oneframe_mobile_flutter_template_project/app/services/crashlytics/crashlytics_service.dart';
-import 'package:oneframe_mobile_flutter_template_project/app/services/firebase_core/firebase_core_service.dart';
 
-import 'app/core/base/binding/base_binding.dart';
-import 'app/core/route/app_pages.dart';
-import 'app/core/style/app_theme.dart';
-import 'app/core/translation/app_translations.dart';
-import 'app/services/push/fcm_service.dart';
+import 'core/base/binding/base_binding.dart';
+import 'core/route/app_pages.dart';
+import 'core/style/app_theme.dart';
+import 'core/translation/app_translations.dart';
+import 'services/crashlytics/crashlytics_service.dart';
+import 'services/firebase_core/firebase_core_service.dart';
+import 'services/push/fcm_service.dart';
 
 /*
     Firebase Analytics kullanımı için eklediğiniz feature'ın controller'ında aşağıdaki namespace'i ekleyip,
