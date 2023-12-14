@@ -12,10 +12,10 @@ import 'app/services/push/fcm_service.dart';
 import 'app/services/crashlytics/crashlytics_service.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   FCMService.initFcm();
   CrashlyticsService.init();
   NetworkingFactory.init();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
 }
 

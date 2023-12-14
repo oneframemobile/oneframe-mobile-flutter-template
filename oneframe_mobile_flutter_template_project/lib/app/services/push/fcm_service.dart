@@ -60,7 +60,7 @@ class FCMService {
         const NotificationDetails(
             android: AndroidNotificationDetails(
               FCMChannelConstants.androidChannelId,
-              FCMChannelConstants.adroidChannelName,
+              FCMChannelConstants.androidChannelName,
               channelDescription: FCMChannelConstants.androidChannelDescription,
               icon: FCMChannelConstants.androidIcon,
             ),
