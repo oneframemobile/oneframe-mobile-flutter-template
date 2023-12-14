@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oneframe_mobile_flutter_template_project/app/services/analytics/analytics_keys.dart';
+import 'package:oneframe_mobile_flutter_template_project/app/services/analytics/analytics_service.dart';
 import 'package:oneframe_mobile_flutter_template_project/app/services/push/fcm_service.dart';
 
 import '../../../core/base/controller/base_controller.dart';
@@ -26,6 +28,8 @@ class HomeController extends BaseController {
   void onInit() async {
     currentScreen = screenList.first;
     var token = await FCMService.getToken();
+    AnalyticsService.logEventWithKey(key: AnalytcisKeys.homeScreen);
+
     super.onInit();
     showSnackBar(content: "FCM TOKEN : $token");
   }

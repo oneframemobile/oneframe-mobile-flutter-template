@@ -42,7 +42,10 @@ dependencies:
   lottie: ^2.4.0
   firebase_core: ^2.24.0
   firebase_messaging: ^14.7.6
-  flutter_local_notifications: ^16.2.0
+  flutter_local_notifications: ^16.2.0 
+  firebase_crashlytics: ^3.4.8
+  firebase_analytics: ^10.7.4
+
   networking:
     git:
       url: https://github.com/oneframemobile/networking.git

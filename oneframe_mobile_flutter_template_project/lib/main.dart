@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:networking/networking.dart';
+import 'package:oneframe_mobile_flutter_template_project/app/services/crashlytics/crashlytics_service.dart';
 
 import 'app/core/base/binding/base_binding.dart';
 import 'app/core/route/app_pages.dart';
 import 'app/core/style/app_theme.dart';
 import 'app/core/translation/app_translations.dart';
 import 'app/services/push/fcm_service.dart';
+import 'app/services/crashlytics/crashlytics_service.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FCMService.initFcm();
+  CrashlyticsService.init();
   NetworkingFactory.init();
   runApp(App());
 }
