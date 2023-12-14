@@ -28,7 +28,7 @@ class HomeController extends BaseController {
   void onInit() async {
     currentScreen = screenList.first;
     var token = await FCMService.getToken();
-    AnalyticsService.logEventWithKey(key: AnalytcisKeys.homeScreen);
+    this.logEventFirebaseAnalytics(key: AnalytcisKeys.homeScreen);
 
     super.onInit();
     showSnackBar(content: "FCM TOKEN : $token");

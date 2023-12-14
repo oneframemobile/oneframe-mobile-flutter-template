@@ -3,19 +3,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:networking/networking.dart';
 import 'package:oneframe_mobile_flutter_template_project/app/services/crashlytics/crashlytics_service.dart';
+import 'package:oneframe_mobile_flutter_template_project/app/services/firebase_core/firebase_core_service.dart';
 
 import 'app/core/base/binding/base_binding.dart';
 import 'app/core/route/app_pages.dart';
 import 'app/core/style/app_theme.dart';
 import 'app/core/translation/app_translations.dart';
 import 'app/services/push/fcm_service.dart';
-import 'app/services/crashlytics/crashlytics_service.dart';
 
+/*
+    Firebase Analytics kullanımı için eklediğiniz feature'ın controller'ında aşağıdaki namespace'i ekleyip,
+    CodeGeneration'ın oluşturduğu base controller class'ında bulnan logEventFirebaseAnalytics method ile gerçekleştirebilirsiniz.
+    import 'services/analytics/analytics_keys.dart';
+    this.logEventFirebaseAnalytics(key: AnalytcisKeys.splash); 
+*/
 void main() async {
-  FCMService.initFcm();
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseCoreService.init();
+  FCMService.init();
   CrashlyticsService.init();
   NetworkingFactory.init();
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(App());
 }
 

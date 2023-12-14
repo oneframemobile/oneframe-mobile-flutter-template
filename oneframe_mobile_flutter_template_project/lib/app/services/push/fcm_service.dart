@@ -1,17 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'fcm_channel_constants.dart';
-import 'fcm_options.dart';
 
 class FCMService {
   FCMService._();
 
-  static Future<void> initFcm() async {
+  static Future<void> init() async {
     try {
-      await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      );
       await _setupFcmNotificationSettings();
       FirebaseMessaging.onMessage.listen(_fcmForegroundHandler);
       FirebaseMessaging.onBackgroundMessage(_fcmBackgroundHandler);

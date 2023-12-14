@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,13 @@ class BaseController extends GetxController {
       barrierDismissible: false,
       builder: (_) => CustomProgressBar(),
     );
+  }
+
+  void logEventFirebaseAnalytics({
+    required String key,
+    Map<String, Object?>? params,
+  }) async {
+    FirebaseAnalytics.instance.logEvent(name: key, parameters: params);
   }
 
   void hideProgressBar() {

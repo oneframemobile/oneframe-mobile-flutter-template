@@ -10,11 +10,4 @@ class AnalyticsService {
   }) async {
     FirebaseAnalytics.instance.logEvent(name: key, parameters: params);
   }
-
-  static Future<void> logEventWithKey({
-    required String key,
-    Map<String, Object?>? params,
-  }) async {
-    logEvent(key: key);
-  }
 }
