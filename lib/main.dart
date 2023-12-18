@@ -9,7 +9,7 @@ import 'core/style/app_theme.dart';
 import 'core/translation/app_translations.dart';
 import 'services/crashlytics/crashlytics_service.dart';
 import 'services/firebase_core/firebase_core_service.dart';
-import 'services/push/fcm_service.dart';
+import 'services/push/firebase_push_service.dart';
 
 /*
     Firebase Analytics kullanımı için eklediğiniz feature'ın controller'ında aşağıdaki namespace'i ekleyip,
@@ -20,7 +20,7 @@ import 'services/push/fcm_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FirebaseCoreService.init();
-  FCMService.init();
+  FirebasePushService.init();
   CrashlyticsService.init();
   NetworkingFactory.init();
   runApp(App());

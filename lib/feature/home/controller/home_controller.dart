@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oneframe_mobile_flutter_template_project/services/push/firebase_push_service.dart';
 
 import '/services/analytics/analytics_keys.dart';
-import '/services/push/fcm_service.dart';
 import '/core/base/controller/base_controller.dart';
 import '/core/translation/localization_key.dart';
 import '../view/tabs/dashboard_tab.dart';
@@ -26,7 +26,7 @@ class HomeController extends BaseController {
   @override
   void onInit() async {
     currentScreen = screenList.first;
-    var token = await FCMService.getToken();
+    var token = await FirebasePushService.getToken();
     this.logEventFirebaseAnalytics(key: AnalytcisKeys.homeScreen);
 
     super.onInit();

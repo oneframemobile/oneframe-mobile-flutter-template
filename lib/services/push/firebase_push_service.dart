@@ -1,9 +1,9 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'fcm_channel_constants.dart';
+import 'firebase_push_channel_constants.dart';
 
-class FCMService {
-  FCMService._();
+class FirebasePushService {
+  FirebasePushService._();
 
   static Future<void> init() async {
     try {
@@ -54,13 +54,15 @@ class FCMService {
         notification.body,
         const NotificationDetails(
             android: AndroidNotificationDetails(
-              FCMChannelConstants.androidChannelId,
-              FCMChannelConstants.androidChannelName,
-              channelDescription: FCMChannelConstants.androidChannelDescription,
-              icon: FCMChannelConstants.androidIcon,
+              FirebasePushChannelConstants.androidChannelId,
+              FirebasePushChannelConstants.androidChannelName,
+              channelDescription:
+                  FirebasePushChannelConstants.androidChannelDescription,
+              icon: FirebasePushChannelConstants.androidIcon,
             ),
             iOS: DarwinNotificationDetails(
-                threadIdentifier: FCMChannelConstants.iosThreadIdentifier)),
+                threadIdentifier:
+                    FirebasePushChannelConstants.iosThreadIdentifier)),
       );
     }
   }
