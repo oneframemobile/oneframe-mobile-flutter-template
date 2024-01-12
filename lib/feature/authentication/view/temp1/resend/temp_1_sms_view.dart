@@ -10,7 +10,7 @@ import '/core/base/view/widgets/text/title_text.dart';
 import '/core/style/app_color.dart';
 import '/core/style/app_decoration.dart';
 import '/core/style/app_text_style.dart';
-import '/core/translation/localization_key.dart';
+import '../../../../../core/localization/localization_key.dart';
 import '/core/util/ui_helper.dart';
 import '../../../controller/resend/sms_controller.dart';
 

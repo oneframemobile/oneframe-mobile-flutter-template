@@ -7,7 +7,7 @@ import '/core/base/view/widgets/button/raised_gradient_button.dart';
 import '/core/route/app_pages.dart';
 import '/core/style/app_color.dart';
 import '/core/style/app_text_style.dart';
-import '/core/translation/localization_key.dart';
+import '../../../core/localization/localization_key.dart';
 import '/core/util/ui_helper.dart';
 import '../controller/select_template_controller.dart';
 

@@ -4,7 +4,7 @@ import 'package:oneframe_mobile_flutter_template_project/services/push/firebase_
 
 import '/services/analytics/analytics_keys.dart';
 import '/core/base/controller/base_controller.dart';
-import '/core/translation/localization_key.dart';
+import '../../../core/localization/localization_key.dart';
 import '../view/tabs/dashboard_tab.dart';
 import '../view/tabs/location_tab.dart';
 import '../view/tabs/notification_tab.dart';

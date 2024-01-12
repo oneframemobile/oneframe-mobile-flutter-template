@@ -6,7 +6,7 @@ import '/core/base/view/widgets/stack/nested_stack.dart';
 import '/core/base/view/widgets/wrapper/keyboard_hider.dart';
 import '/core/style/app_color.dart';
 import '/core/style/app_text_style.dart';
-import '/core/translation/localization_key.dart';
+import '../../../../core/localization/localization_key.dart';
 import '/core/util/ui_helper.dart';
 import '../../controller/authentication_controller.dart';
 import 'tabs/temp_1_login_tab.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '/core/base/view/widgets/button/navigation_bar_button.dart';
-import '/core/translation/localization_key.dart';
+import '../../../core/localization/localization_key.dart';
 import '/core/util/ui_helper.dart';
 import '../controller/home_controller.dart';
 

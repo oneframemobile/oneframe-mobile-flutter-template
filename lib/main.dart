@@ -6,7 +6,7 @@ import 'package:networking/networking.dart';
 import 'core/base/binding/base_binding.dart';
 import 'core/route/app_pages.dart';
 import 'core/style/app_theme.dart';
-import 'core/translation/app_translations.dart';
+import 'core/localization/app_translations.dart';
 import 'services/crashlytics/crashlytics_service.dart';
 import 'services/firebase_core/firebase_core_service.dart';
 import 'services/push/firebase_push_service.dart';

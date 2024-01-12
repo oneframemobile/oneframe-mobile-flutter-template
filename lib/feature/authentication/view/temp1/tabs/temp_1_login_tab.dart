@@ -13,7 +13,7 @@ import '/core/route/app_pages.dart';
 import '/core/style/app_color.dart';
 import '/core/style/app_decoration.dart';
 import '/core/style/app_text_style.dart';
-import '/core/translation/localization_key.dart';
+import '../../../../../core/localization/localization_key.dart';
 import '/core/util/ui_helper.dart';
 import '/core/util/validator_helper.dart';
 import '../../../controller/login/login_controller.dart';
