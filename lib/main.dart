@@ -15,7 +15,7 @@ import 'services/push/firebase_push_service.dart';
     Firebase Analytics kullanımı için eklediğiniz feature'ın controller'ında aşağıdaki namespace'i ekleyip,
     CodeGeneration'ın oluşturduğu base controller class'ında bulnan logEventFirebaseAnalytics method ile gerçekleştirebilirsiniz.
     import 'services/analytics/analytics_keys.dart';
-    this.logEventFirebaseAnalytics(key: AnalytcisKeys.splash); 
+    this.logEventFirebaseAnalytics(key: AnalyticsKeys.splash); 
 */
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

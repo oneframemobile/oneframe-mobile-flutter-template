@@ -27,7 +27,7 @@ class HomeController extends BaseController {
   void onInit() async {
     currentScreen = screenList.first;
     var token = await FirebasePushService.getToken();
-    this.logEventFirebaseAnalytics(key: AnalytcisKeys.homeScreen);
+    this.logEventFirebaseAnalytics(key: AnalyticsKeys.homeScreen);
 
     super.onInit();
     showSnackBar(content: "FCM TOKEN : $token");

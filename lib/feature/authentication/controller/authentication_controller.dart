@@ -13,7 +13,7 @@ class AuthenticationController extends BaseController
   void onInit() {
     scrollController = ScrollController();
     tabController = TabController(length: 2, vsync: this);
-    this.logEventFirebaseAnalytics(key: AnalytcisKeys.authenticationScreen);
+    this.logEventFirebaseAnalytics(key: AnalyticsKeys.authenticationScreen);
 
     super.onInit();
   }
