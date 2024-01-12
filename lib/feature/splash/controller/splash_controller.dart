@@ -8,7 +8,7 @@ class SplashController extends BaseController {
   @override
   void onReady() async {
     await Get.offNamed(AppRoutes.selectTemplate);
-    this.logEventFirebaseAnalytics(key: AnalytcisKeys.splash);
+    this.logEventFirebaseAnalytics(key: AnalyticsKeys.splash);
     super.onReady();
   }
 }
